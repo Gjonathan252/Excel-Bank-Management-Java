@@ -8,17 +8,10 @@ import java.io.IOException;
 import java.util.List;
 
 public class BankingApp {
-    public static void main(String[] args) throws IOException {
-        // readMethods readMethods = new readMethods();
-        
+    public static void main(String[] args) throws IOException {       
         writeMethods excel = new writeMethods();
         excel.loopWriteExcel();
 
-        // Routing routing = new Routing();
-
-        // routing.collectCharge();
-        // System.out.println(routing.getToken() + routing.getCost() +
-        // routing.getStore());
 
     }
 }

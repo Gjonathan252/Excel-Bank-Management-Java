@@ -28,6 +28,8 @@ public class writeMethods {
             Workbook workbook = WorkbookFactory.create(fileInputStream);
             Sheet sheet1 = workbook.getSheetAt(0);
             List<Charge> chargeList = getChargeList();
+            readMethods rMethods = new readMethods();
+
             for (int i = 0; i < chargeList.size(); i++) {
                 // Row dataRow = sheet1.getRow(++lastRowCount1); //example of creating cells in
                 // pos without deleting data
@@ -37,6 +39,21 @@ public class writeMethods {
                 dataRow.createCell(7).setCellValue(chargeList.get(i).getToken());
                 dataRow.createCell(8).setCellValue(chargeList.get(i).getCost());
                 dataRow.createCell(9).setCellValue(chargeList.get(i).getStore());
+                switch (chargeList.get(0).getToken()) {
+                    case "Checkings":
+                        // Double tempC = rMethods.getChecking() - chargeList.get(i).getCost();
+                        dataRow.createCell(10).setCellValue(rMethods.getChecking() - chargeList.get(i).getCost());
+                        break;
+                    case "Savings":
+                        dataRow.createCell(10).setCellValue(rMethods.getSaving() - chargeList.get(i).getCost());
+                        break;
+                    case "Business":
+                        dataRow.createCell(10).setCellValue(rMethods.getBusiness() - chargeList.get(i).getCost());
+                        break;
+                    default:
+                        break;
+
+                }
             }
             switch (chargeList.get(0).getToken()) {
                 case "Checkings":
@@ -48,6 +65,7 @@ public class writeMethods {
                         dataRow.createCell(7).setCellValue(chargeList.get(i).getToken());
                         dataRow.createCell(8).setCellValue(chargeList.get(i).getCost());
                         dataRow.createCell(9).setCellValue(chargeList.get(i).getStore());
+                        dataRow.createCell(10).setCellValue(rMethods.getChecking() - chargeList.get(i).getCost());
                     }
                     break;
                 case "Savings":
@@ -59,6 +77,7 @@ public class writeMethods {
                         dataRow.createCell(7).setCellValue(chargeList.get(i).getToken());
                         dataRow.createCell(8).setCellValue(chargeList.get(i).getCost());
                         dataRow.createCell(9).setCellValue(chargeList.get(i).getStore());
+                        dataRow.createCell(10).setCellValue(rMethods.getSaving() - chargeList.get(i).getCost());
                     }
                     break;
                 case "Business":
@@ -70,6 +89,7 @@ public class writeMethods {
                         dataRow.createCell(7).setCellValue(chargeList.get(i).getToken());
                         dataRow.createCell(8).setCellValue(chargeList.get(i).getCost());
                         dataRow.createCell(9).setCellValue(chargeList.get(i).getStore());
+                        dataRow.createCell(10).setCellValue(rMethods.getBusiness() - chargeList.get(i).getCost());
                     }
                     break;
                 default:
