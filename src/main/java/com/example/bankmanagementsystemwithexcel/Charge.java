@@ -92,7 +92,7 @@ public class Charge {
     public double costToken() {
         Scanner costScanner = new Scanner(System.in);
         System.out.println("Enter Charge $:");
-        Cost = costScanner.nextInt();
+        Cost = costScanner.nextDouble();
         return Cost;
     }
 
@@ -103,10 +103,17 @@ public class Charge {
         return Store;
     }
 
+
     @Override
     public String toString() {
-        return "{" + " Date='" + getDate() + "'" + ", Time='" + getTime() + "'" + ", Token='" + getToken() + "'"
-                + ", Cost='" + getCost() + "'" + ", Store='" + getStore() + "'" + "}";
+        return "{" +
+            " Date='" + getDate() + "'" +
+            ", Time='" + getTime() + "'" +
+            ", Token='" + getToken() + "'" +
+            ", Store='" + getStore() + "'" +
+            ", Cost='" + getCost() + "'" +
+            "}";
     }
+
 
 }

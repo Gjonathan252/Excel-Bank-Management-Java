@@ -2,6 +2,7 @@ package com.example.bankmanagementsystemwithexcel;
 
 import java.util.Scanner;
 
+//This methods are being done on the charge.java and are implemented on the Routing.java folder.
 public class CheckCollectionMethod {
     // String inputToken, inputCost, inputStore;
 
