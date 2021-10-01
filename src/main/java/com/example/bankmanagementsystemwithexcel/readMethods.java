@@ -46,7 +46,7 @@ public class readMethods {
             // else
             //     System.out.println("Cell is empty");
         } catch (Exception e) {
-            // System.out.println(e);
+            System.out.println(e);
         }
         return Checking;
     }
@@ -62,7 +62,7 @@ public class readMethods {
             // else
             //     System.out.println("Cell is empty");
         } catch (Exception e) {
-            // System.out.println(e);
+            System.out.println(e);
         }
         return Saving;
     }
@@ -78,7 +78,7 @@ public class readMethods {
             // else
             //     System.out.println("Cell is empty");
         } catch (Exception e) {
-            // System.out.println(e);
+            System.out.println(e);
         }
         return Business;
     }
