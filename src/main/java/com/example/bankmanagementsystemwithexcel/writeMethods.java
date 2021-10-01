@@ -81,7 +81,7 @@ public class writeMethods {
                 FileOutputStream fileOutputStream = new FileOutputStream(EXCEL_FILE_PATH);
                 workbook.write(fileOutputStream);
                 fileOutputStream.close();
-                System.out.println("update sus");
+                System.out.println("\nExcelFile Succesfully Updated...\n");
     
             } catch (Exception e) {
                 e.printStackTrace();

@@ -64,26 +64,43 @@ public class Charge {
         boolean check = false;
         Scanner tokenScanner = new Scanner(System.in);
         while (!check) {
-            System.out.println("\nSelect Bank Account\n" + "1.Checking\n" + "2.Savings\n" + "3.Business");
+            System.out.println("\nSelect Bank Account\n" + "1.Checking\n" + "2.Savings\n" + "3.Business\n"
+                    + "\nType: \"STOP\" to stop the program");
             Token = tokenScanner.nextLine();
-            int temp = Integer.valueOf(Token);
-            switch (temp) {
-                case 1:
-                Token = "Checkings";
-                check = true;
-                    break;
-                case 2:
-                Token = "Savings";
-                check = true;
-                    break;
+            if (Token.toUpperCase().equals("STOP")) {
+                System.out.println("\nExiting Program");
+                System.exit(0);
+            }
 
-                case 3:
-                Token = "Business";
-                check = true;
+            Boolean flag = true;
+
+            for (int a = 0; a < Token.length(); a++) {
+                if (!Character.isDigit(Token.charAt(a))) {
+                    flag = false;
+                    System.out.println("\nIncorrect input.\nPlease Select from the give selections\n");
                     break;
-                default:
-                System.out.println("\nIncorrect input.\nPlease Select from the give selections\n");
-                    break;
+                }
+            }
+            if (flag) {
+                // int temp = Integer.valueOf(Token);
+                switch (Token) {
+                    case "1":
+                        Token = "Checkings";
+                        check = true;
+                        break;
+                    case "2":
+                        Token = "Savings";
+                        check = true;
+                        break;
+
+                    case "3":
+                        Token = "Business";
+                        check = true;
+                        break;
+                    default:
+                        System.out.println("\nIncorrect input.\nPlease Select from the give selections\n");
+                        break;
+                }
             }
         }
         return Token;
@@ -91,29 +108,28 @@ public class Charge {
 
     public double costToken() {
         Scanner costScanner = new Scanner(System.in);
-        System.out.println("Enter Charge $:");
+        boolean check = false;
+        System.out.println("\nEnter Charge $:");
+        while (!costScanner.hasNextDouble()) {
+            System.out.println("\nInvalid input\nType the double-type number:");
+            costScanner.next();
+            System.out.println("\nEnter Charge $:");
+        }
         Cost = costScanner.nextDouble();
         return Cost;
     }
 
     public String storeToken() {
         Scanner storeScanner = new Scanner(System.in);
-        System.out.println("Enter Store");
+        System.out.println("\nEnter Store");
         Store = storeScanner.nextLine();
         return Store;
     }
 
-
     @Override
     public String toString() {
-        return "{" +
-            " Date='" + getDate() + "'" +
-            ", Time='" + getTime() + "'" +
-            ", Token='" + getToken() + "'" +
-            ", Store='" + getStore() + "'" +
-            ", Cost='" + getCost() + "'" +
-            "}";
+        return "{" + " Date='" + getDate() + "'" + ", Time='" + getTime() + "'" + ", Token='" + getToken() + "'"
+                + ", Store='" + getStore() + "'" + ", Cost='" + getCost() + "'" + "}";
     }
-
 
 }
