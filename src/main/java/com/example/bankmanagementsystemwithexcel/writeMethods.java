@@ -15,7 +15,7 @@ import java.util.*;
 public class writeMethods {
     public static final String EXCEL_FILE_PATH = "./data/Routing.xlsx";
 
-    public void writeExcel() {
+    public void loopWriteExcel() {
         boolean exitCheck = false;
         while (!exitCheck) {
             updateExcelFile();
@@ -27,10 +27,11 @@ public class writeMethods {
             FileInputStream fileInputStream = new FileInputStream(EXCEL_FILE_PATH);
             Workbook workbook = WorkbookFactory.create(fileInputStream);
             Sheet sheet1 = workbook.getSheetAt(0);
-            int lastRowCount1 = sheet1.getLastRowNum() - 3;
             List<Charge> chargeList = getChargeList();
             for (int i = 0; i < chargeList.size(); i++) {
-                Row dataRow = sheet1.getRow(++lastRowCount1);
+                // Row dataRow = sheet1.getRow(++lastRowCount1); //example of creating cells in
+                // pos without deleting data
+                Row dataRow = sheet1.createRow(sheet1.getLastRowNum() + 1);
                 dataRow.createCell(5).setCellValue(chargeList.get(i).getDate());
                 dataRow.createCell(6).setCellValue(chargeList.get(i).getTime());
                 dataRow.createCell(7).setCellValue(chargeList.get(i).getToken());
@@ -40,11 +41,8 @@ public class writeMethods {
             switch (chargeList.get(0).getToken()) {
                 case "Checkings":
                     Sheet sheet2 = workbook.getSheetAt(1);
-                    // int lastRowCount1 = sheet2.getLastRowNum()-1;
-                    lastRowCount1 = sheet2.getLastRowNum() - 1;
-
                     for (int i = 0; i < chargeList.size(); i++) {
-                        Row dataRow = sheet2.getRow(++lastRowCount1);
+                        Row dataRow = sheet2.createRow(sheet2.getLastRowNum() + 1);
                         dataRow.createCell(5).setCellValue(chargeList.get(i).getDate());
                         dataRow.createCell(6).setCellValue(chargeList.get(i).getTime());
                         dataRow.createCell(7).setCellValue(chargeList.get(i).getToken());
@@ -54,10 +52,8 @@ public class writeMethods {
                     break;
                 case "Savings":
                     Sheet sheet3 = workbook.getSheetAt(2);
-                    // int lastRowCount1 = sheet3.getLastRowNum()-1;
-                    lastRowCount1 = sheet3.getLastRowNum() - 1;
                     for (int i = 0; i < chargeList.size(); i++) {
-                        Row dataRow = sheet3.getRow(++lastRowCount1);
+                        Row dataRow = sheet3.createRow(sheet3.getLastRowNum() + 1);
                         dataRow.createCell(5).setCellValue(chargeList.get(i).getDate());
                         dataRow.createCell(6).setCellValue(chargeList.get(i).getTime());
                         dataRow.createCell(7).setCellValue(chargeList.get(i).getToken());
@@ -67,10 +63,8 @@ public class writeMethods {
                     break;
                 case "Business":
                     Sheet sheet4 = workbook.getSheetAt(3);
-                    // int lastRowCount1 = sheet4.getLastRowNum()-1;
-                    lastRowCount1 = sheet4.getLastRowNum() - 1;
                     for (int i = 0; i < chargeList.size(); i++) {
-                        Row dataRow = sheet4.getRow(++lastRowCount1);
+                        Row dataRow = sheet4.createRow(sheet4.getLastRowNum() + 1);
                         dataRow.createCell(5).setCellValue(chargeList.get(i).getDate());
                         dataRow.createCell(6).setCellValue(chargeList.get(i).getTime());
                         dataRow.createCell(7).setCellValue(chargeList.get(i).getToken());
