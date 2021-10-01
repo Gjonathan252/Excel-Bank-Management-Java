@@ -12,7 +12,7 @@ public class BankingApp {
         // readMethods readMethods = new readMethods();
         
         writeMethods excel = new writeMethods();
-        excel.updateExcelFile();
+        excel.writeExcel();
 
         // Routing routing = new Routing();
 
