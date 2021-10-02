@@ -66,6 +66,9 @@ public class writeMethods {
                         dataRow.createCell(8).setCellValue(chargeList.get(i).getCost());
                         dataRow.createCell(9).setCellValue(chargeList.get(i).getStore());
                         dataRow.createCell(10).setCellValue(rMethods.getChecking() - chargeList.get(i).getCost());
+                        sheet2 = workbook.getSheetAt(4);
+                        dataRow = sheet2.createRow(2);
+                        dataRow.createCell(0).setCellValue(rMethods.getChecking() - chargeList.get(i).getCost());
                     }
                     break;
                 case "Savings":
@@ -78,6 +81,9 @@ public class writeMethods {
                         dataRow.createCell(8).setCellValue(chargeList.get(i).getCost());
                         dataRow.createCell(9).setCellValue(chargeList.get(i).getStore());
                         dataRow.createCell(10).setCellValue(rMethods.getSaving() - chargeList.get(i).getCost());
+                        sheet3 = workbook.getSheetAt(4);
+                        dataRow = sheet3.createRow(5);
+                        dataRow.createCell(0).setCellValue(rMethods.getSaving() - chargeList.get(i).getCost());
                     }
                     break;
                 case "Business":
@@ -90,6 +96,9 @@ public class writeMethods {
                         dataRow.createCell(8).setCellValue(chargeList.get(i).getCost());
                         dataRow.createCell(9).setCellValue(chargeList.get(i).getStore());
                         dataRow.createCell(10).setCellValue(rMethods.getBusiness() - chargeList.get(i).getCost());
+                        sheet2 = workbook.getSheetAt(4);
+                        dataRow = sheet2.createRow(8);
+                        dataRow.createCell(0).setCellValue(rMethods.getSaving() - chargeList.get(i).getCost());
                     }
                     break;
                 default:
