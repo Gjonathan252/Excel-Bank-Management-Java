@@ -36,9 +36,9 @@ public class readMethods {
     }
     public double checkingBal() {
         try {
-            Sheet sheet = workbook.getSheetAt(1);
-            Row row = sheet.getRow(1);
-            Cell cell = row.getCell(13);
+            Sheet sheet = workbook.getSheetAt(4);
+            Row row = sheet.getRow(2);
+            Cell cell = row.getCell(0);
             String s = cell.toString();
             Checking = Double.parseDouble(s);
             // if (cell != null)
@@ -52,9 +52,9 @@ public class readMethods {
     }
     public double savingBal() {
         try {
-            Sheet sheet = workbook.getSheetAt(2);
-            Row row = sheet.getRow(1);
-            Cell cell = row.getCell(13);
+            Sheet sheet = workbook.getSheetAt(4);
+            Row row = sheet.getRow(5);
+            Cell cell = row.getCell(0);
             String s = cell.toString();
             Saving = Double.parseDouble(s);
             // if (cell != null)
@@ -68,9 +68,9 @@ public class readMethods {
     }
     public double businessBal() {
         try {
-            Sheet sheet = workbook.getSheetAt(3);
-            Row row = sheet.getRow(1);
-            Cell cell = row.getCell(13);
+            Sheet sheet = workbook.getSheetAt(4);
+            Row row = sheet.getRow(8);
+            Cell cell = row.getCell(0);
             String s = cell.toString();
             Business = Double.parseDouble(s);
             // if (cell != null)
