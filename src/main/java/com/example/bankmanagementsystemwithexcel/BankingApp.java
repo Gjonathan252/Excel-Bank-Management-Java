@@ -10,7 +10,9 @@ import java.util.List;
 public class BankingApp {
     public static void main(String[] args) throws IOException {       
         writeMethods excel = new writeMethods();
-        excel.loopWriteExcel();
+        excel.loopExcel();
+        // readMethods rMethods = new readMethods();
+        // rMethods.rowAndcol();
 
 
     }
