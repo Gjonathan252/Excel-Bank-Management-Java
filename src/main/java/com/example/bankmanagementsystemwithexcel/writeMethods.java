@@ -15,10 +15,44 @@ import java.util.*;
 public class writeMethods {
     public static final String EXCEL_FILE_PATH = "./data/Routing.xlsx";
 
-    public void loopWriteExcel() {
-        boolean exitCheck = false;
-        while (!exitCheck) {
-            updateExcelFile();
+    public void loopExcel() throws IOException {
+
+        readMethods readMethods = new readMethods();
+        String checkString;
+        boolean check = false;
+        while (!check) {
+            System.out.println("\nMake Transaction or Check latest Transactions\n" + "1.Make Transaction\n"
+                    + "2.Check Balance\n" + "\nType: \"STOP\" to stop the program");
+            Scanner inputScanner = new Scanner(System.in);
+            checkString = inputScanner.nextLine();
+            if (checkString.toUpperCase().equals("STOP")) {
+                System.out.println("\nExiting Program");
+                System.exit(0);
+            }
+
+            Boolean flag = true;
+            for (int a = 0; a < checkString.length(); a++) {
+                if (!Character.isDigit(checkString.charAt(a))) {
+                    flag = false;
+                    System.out.println("\nIncorrect input.\nPlease Select from the give selections\n");
+                    break;
+                }
+            }
+            if (flag) {
+                // int temp = Integer.valueOf(Token);
+                switch (checkString) {
+                    case "1":
+                        updateExcelFile();
+                        break;
+                    case "2":
+                        readMethods.showBal();
+                        break;
+                    default:
+                        System.out.println("\nIncorrect input.\nPlease Select from the give selections\n");
+                        break;
+                }
+            }
+
         }
     }
 
